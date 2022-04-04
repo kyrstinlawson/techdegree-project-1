@@ -12,29 +12,23 @@ const quotes = [
   {
     quote: "Be yourself; everyone else is already taken.",
     source: "Oscar Wilde",
-    citation: "",
     year: 1890,
     tags: ["be-yourself", "honesty", "inspirational"]
   },
   {
     quote: "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
     source: "Albert Einstein",
-    citation: "",
     year: 1940,
     tags: ["human-nature", "humor", "philosophy"]
   },
   {
     quote: "So many books, so little time.",
     source: "Frank Zappa",
-    citation: "",
-    year: "unknown",
     tags: ["books", "humor"]
   },
   {
     quote: "You only live once, but if you do it right, once is enough.",
     source: "Mae West",
-    citation: "",
-    year: "unknown",
     tags: ["humor", "life", "inspirational"]
   },
   {
@@ -48,16 +42,40 @@ const quotes = [
 
 
 
+
 /***
  * `getRandomQuote` function
 ***/
 
+let randomNum;
+function getRandomQuote() {
+  randomNum = Math.floor(Math.random() * quotes.length);
+  return quotes[randomNum];
+}
 
 
 /***
  * `printQuote` function
 ***/
+ function printQuote() {
+   let quoteObject = getRandomQuote();
+   let html = `
+      <p class="quote"> ${quoteObject.quote} </p>
+      <p class="source"> ${quoteObject.source}
+      `;
+    if ( quoteObject.citation ) {
+      html = html + `<span class="citation"> ${quoteObject.citation} </span>`
+    }
+    if ( quoteObject.year) {
+      html = html + `<span class="year"> ${quoteObject.year} </span>`
+    }
+    html = html + `</p>`;
+  return html;
+ }
 
+ finalString = printQuote();
+
+ document.getElementById('quote-box').innerHTML = finalString; 
 
 
 /***
