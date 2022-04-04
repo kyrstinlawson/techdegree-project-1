@@ -50,6 +50,15 @@ function getRandomQuote() {
   return quotes[randomNum];
 }
 
+/*** 
+ * randomColor & randomRGB functions to generate random background color
+***/
+const randomColor = () => Math.floor(Math.random() * 256);
+
+function randomRGB(value) {
+  const color = `rgb( ${value()}, ${value()}, ${value()} )`
+  return color;
+}
 
 /***
  * `printQuote` function: uses the getRandomQuote function and produces HTML needed to show quote and source as well as year, citation and tags where applicable.
@@ -70,6 +79,7 @@ function getRandomQuote() {
     if ( quoteObject.tags ) {
       html = html + `<p class="tags">tags: ${quoteObject.tags.join(", ")}</p>`
     }
+  document.body.style.backgroundColor = randomRGB(randomColor)
   document.getElementById('quote-box').innerHTML = html; 
  }
 
