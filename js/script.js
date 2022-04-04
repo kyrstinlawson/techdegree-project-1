@@ -73,6 +73,8 @@ function getRandomQuote() {
   document.getElementById('quote-box').innerHTML = html; 
  }
 
+ setInterval(printQuote, 5000);
+
 
 /***
  * click event listener for the print quote button
