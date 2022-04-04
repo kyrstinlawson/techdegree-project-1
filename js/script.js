@@ -52,8 +52,7 @@ function getRandomQuote() {
 
 
 /***
- * `printQuote` function: uses the getRandomQuote function 
-  and produces HTML needed to show quote and source as well as year and citation where applicable.
+ * `printQuote` function: uses the getRandomQuote function and produces HTML needed to show quote and source as well as year, citation and tags where applicable.
 ***/
  function printQuote() {
    let quoteObject = getRandomQuote();
@@ -68,6 +67,9 @@ function getRandomQuote() {
       html = html + `<span class="year"> ${quoteObject.year} </span>`
     }
     html = html + `</p>`;
+    if ( quoteObject.tags ) {
+      html = html + `<p class="tags">tags: ${quoteObject.tags.join(", ")}</p>`
+    }
   document.getElementById('quote-box').innerHTML = html; 
  }
 
