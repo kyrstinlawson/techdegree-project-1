@@ -3,11 +3,8 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance:
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-//quotes array
+//Quotes Array: each object must contain a quote and source; if applicable also includes year, citation and tags.
 const quotes = [
   {
     quote: "Be yourself; everyone else is already taken.",
@@ -44,7 +41,7 @@ const quotes = [
 
 
 /***
- * `getRandomQuote` function
+ * `getRandomQuote` function: Selects a random object from the quotes array 
 ***/
 
 let randomNum;
@@ -55,7 +52,8 @@ function getRandomQuote() {
 
 
 /***
- * `printQuote` function
+ * `printQuote` function: uses the getRandomQuote function 
+  and produces HTML needed to show quote and source as well as year and citation where applicable.
 ***/
  function printQuote() {
    let quoteObject = getRandomQuote();
@@ -70,17 +68,12 @@ function getRandomQuote() {
       html = html + `<span class="year"> ${quoteObject.year} </span>`
     }
     html = html + `</p>`;
-  return html;
+  document.getElementById('quote-box').innerHTML = html; 
  }
-
- finalString = printQuote();
-
- document.getElementById('quote-box').innerHTML = finalString; 
 
 
 /***
  * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
